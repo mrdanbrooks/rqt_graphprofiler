@@ -1,13 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(rqt_graphprofiler)
 
-find_package(catkin REQUIRED COMPONENTS
-#   message_generation
-  rospy
-  rqt_gui
-  rqt_gui_py
-  std_msgs
-)
+find_package(catkin REQUIRED)
 
 catkin_python_setup()
 
