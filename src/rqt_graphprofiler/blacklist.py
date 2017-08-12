@@ -23,12 +23,12 @@ current_blacklist = ['hare', 'hyrax', 'camel', 'pig']
 revised_blacklist = BlacklistDialog.get_blacklist(values=current_blacklist)
 """
 
-from python_qt_binding.QtGui import QDialog
-from python_qt_binding.QtGui import QHBoxLayout
-from python_qt_binding.QtGui import QListView
-from python_qt_binding.QtGui import QPushButton
-from python_qt_binding.QtGui import QStringListModel
-from python_qt_binding.QtGui import QVBoxLayout
+from python_qt_binding.QtWidgets import QDialog
+from python_qt_binding.QtWidgets import QHBoxLayout
+from python_qt_binding.QtWidgets import QListView
+from python_qt_binding.QtWidgets import QPushButton
+from python_qt_binding.QtWidgets import QVBoxLayout
+from python_qt_binding.QtCore import QStringListModel
 from python_qt_binding.QtGui import QIcon
 
 

@@ -18,12 +18,12 @@ import os
 import sys
 import logging
 
-from python_qt_binding.QtGui import QCheckBox
-from python_qt_binding.QtGui import QHBoxLayout
+from python_qt_binding.QtWidgets import QCheckBox
+from python_qt_binding.QtWidgets import QHBoxLayout
 from python_qt_binding.QtGui import QIcon
-from python_qt_binding.QtGui import QPushButton
-from python_qt_binding.QtGui import QVBoxLayout
-from python_qt_binding.QtGui import QWidget
+from python_qt_binding.QtWidgets import QPushButton
+from python_qt_binding.QtWidgets import QVBoxLayout
+from python_qt_binding.QtWidgets import QWidget
 
 from qt_gui.plugin import Plugin
 import rosprofiler_adapter
