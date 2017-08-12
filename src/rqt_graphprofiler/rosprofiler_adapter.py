@@ -304,12 +304,24 @@ class ROSProfileAdapter(BaseAdapter):
                 virt_mem_max.append(data.virt_mem_max)
             rsgNodes[node_name].num_threads = max(num_threads)
             rsgNodes[node_name].cpu_load_mean = np.mean(np.array(cpu_load_mean))
-            rsgNodes[node_name].cpu_load_std = math.sqrt(sum(
-                    [math.pow(sd, 2)/n for sd, n in zip(cpu_load_std, samples)]))
+            load_sd = 0
+            for sd, n in zip(cpu_load_std, samples):
+                if n != 0:
+                    load_sd += math.pow(sd, 2)/n
+                else:
+                    #No samples? Not sure what to do here. 
+                    pass
+            rsgNodes[node_name].cpu_load_std = math.sqrt(load_sd)
             rsgNodes[node_name].cpu_load_max = max(cpu_load_max)
             rsgNodes[node_name].virt_mem_mean = np.mean(np.array(virt_mem_mean))
-            rsgNodes[node_name].virt_mem_std = math.sqrt(sum(
-                    [math.pow(sd, 2)/n for sd, n in zip(virt_mem_std, samples)]))
+            virt_sd = 0
+            for sd, n in zip(virt_mem_std, samples):
+                if n != 0:
+                    virt_sd += math.pow(sd, 2)/n
+                else:
+                    #No samples? Not sure what to do here. 
+                    pass                
+            rsgNodes[node_name].virt_mem_std = math.sqrt(virt_sd)
             rsgNodes[node_name].virt_mem_max = max(virt_mem_max)
 
         # Process Topic Statistics Data

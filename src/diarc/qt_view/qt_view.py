@@ -1,7 +1,9 @@
 from python_qt_binding.QtCore import Qt, QMimeData, QPoint, QEvent
-from python_qt_binding.QtGui import QPen, QColor, QSizePolicy, QDrag, QBrush, QGraphicsWidget
-from python_qt_binding.QtGui import QGraphicsView, QGraphicsAnchorLayout, QGraphicsScene
-from python_qt_binding.QtGui import QFontMetrics, QToolTip, QPixmap, QImage, QPolygon
+from python_qt_binding.QtGui import QPen, QColor,  QDrag, QBrush
+from python_qt_binding.QtGui import QFontMetrics, QPixmap, QImage, QPolygon
+from python_qt_binding.QtWidgets import QSizePolicy, QGraphicsWidget
+from python_qt_binding.QtWidgets import QGraphicsView, QGraphicsAnchorLayout
+from python_qt_binding.QtWidgets import QToolTip, QGraphicsScene
 from python_qt_binding.QtCore import pyqtSignal as Signal
 
 from diarc.snapkey import gen_snapkey, parse_snapkey
@@ -1229,9 +1231,9 @@ class QtView(QGraphicsView, View):
         self.__set_snap_item_settings_signal.connect(self.layout_manager.set_snap_item_settings)
         self.__set_snap_item_attributes_signal.connect(self.layout_manager.set_snap_item_attributes)
         self.resize(1024,768)
-        QColor.setAllowX11ColorNames(True)
-        if not QColor.allowX11ColorNames():
-            rospy.logwarn("Coloring will not work properly")
+        #QColor.setAllowX11ColorNames(True)
+        #if not QColor.allowX11ColorNames():
+        print "Coloring will not work properly because Qt 5.* doesn't have allowX11ColorNames"
         self.show()
 
     def update_view(self):
